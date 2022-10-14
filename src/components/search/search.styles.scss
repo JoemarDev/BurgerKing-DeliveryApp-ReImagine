@@ -1,0 +1,28 @@
+.search-container {
+    padding: 10px 20px;
+    width: 400px;
+    background: #f3c074;
+    border-radius: 20px;
+    position: relative;
+
+    .search-icon {
+        position: absolute;
+        right: 30px;
+        top: 50%;
+        transform: translate(0% , -50%);
+    }
+    .search-input {
+        width: 90%;
+        padding: 10px;
+        border-radius: 10px;
+        background: transparent;
+        border: none;
+        font-size: 18px;
+        font-weight: 600;
+
+        &:focus {
+            outline: none;
+        }
+    }
+    
+}

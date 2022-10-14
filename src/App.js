@@ -1,17 +1,21 @@
 
-import AddressBanner from "./components/address-banner/address-banner.component";
-import Category from "./components/category/category.component";
+import { Routes , Route } from "react-router-dom";
 import Header from "./components/header/header.component";
-import ProductLists from "./components/product-lists/product-lists.component";
-
+import MealCategory from "./routes/meal-category/meal-category";
+import Meal from "./routes/meal/meal.component";
 const App = () => {
-
+	
   	return (
     	<>
-			<Header/>
-			<AddressBanner />
-			<Category />
-			<ProductLists />
+			<div className="container">
+				<Routes>
+					<Route path="/" element={<Header />}>
+						<Route index element={<Meal />}></Route>
+						<Route index path="meal/:meal_type" element={<MealCategory />}></Route>
+					</Route>
+				</Routes>
+				
+			</div>
     	</>
   	);
 }

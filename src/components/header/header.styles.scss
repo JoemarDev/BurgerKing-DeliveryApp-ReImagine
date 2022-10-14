@@ -1,20 +1,19 @@
 .menu-section {
-    max-width: 1400px;
-    margin: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding:  50px;
+    padding:  50px 0px;
 
 
     .left-section {
-
         display: flex;
         align-items: center;
+
         h2 {
             font-size: 30px;
             font-weight: 900;
             margin: 0;
+            cursor: pointer;
 
             span {
                 font-weight: 300;
@@ -28,36 +27,6 @@
         }
     }
 
-    .center-section {
-        .search-container {
-            padding: 10px 20px;
-            width: 400px;
-            background: #efefef;
-            border-radius: 20px;
-            position: relative;
-
-            .search-icon {
-                position: absolute;
-                right: 30px;
-                top: 50%;
-                transform: translate(0% , -50%);
-            }
-            .search-input {
-                width: 90%;
-                padding: 10px;
-                border-radius: 10px;
-                background: transparent;
-                border: none;
-                font-size: 18px;
-                font-weight: 600;
-
-                &:focus {
-                    outline: none;
-                }
-            }
-            
-        }
-    }
 
     .right-section {
 
@@ -73,6 +42,7 @@
             margin-right: 15px;
             border: none;
             font-size: 0;
+            background: #f3c074;
             box-shadow: #888;
 
             &:first-letter {

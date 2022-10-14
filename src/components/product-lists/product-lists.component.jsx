@@ -1,32 +1,32 @@
-import { useEffect, useState } from "react";
-import {  GetRecommendedProduct } from "../../utils/app-functions";
+import { Fragment, useContext } from "react";
+import { ProductsContext } from "../../context/products.context";
+import ProductHeader from "../product-header/product-header.component";
+import './product-lists.styles.scss'
 
 const ProductLists = () => {
 
-	const [featuredProduct , setFeaturedProduct] = useState([]);
-    
-	useEffect(() => {
-		setFeaturedProduct(GetRecommendedProduct());
-	},[]);
+    const { products } = useContext(ProductsContext);
 
     return (
-        <div className="product-lists">
-            {featuredProduct && featuredProduct.map((product , index) => {
-               
-                const {image , name  , category_name} = product;
-    
-                return (
-                    <div className="product-card-container" key={index}>
-                        <img src={image.thumbnail_small} alt={name}/>
-                        <label className="product-title">{name}</label>
-                        <span className="star-icon"></span>
-                        <span className="rate">4.5</span>
-                        <span className="location">Deep Cafe</span>
-                        <span className="categories">{category_name}</span>
-                    </div>
-                )
-            })}
-        </div>
+        <Fragment>
+            <ProductHeader />
+            <div className="product-lists">
+                {products && products.map((product , index) => {
+                    const {image , name } = product;
+                    
+                    return (
+                        <div className="product-card-container" key={index}>
+                            <div className="product-image-container">
+                                {image && 
+                                    <img src={image?.thumbnail_small} alt={name}/>
+                                }
+                            </div>
+                            <label className="product-title">{name}</label>  
+                        </div>
+                    )
+                })}
+            </div>
+        </Fragment>
     );
 }
 
