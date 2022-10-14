@@ -15,10 +15,9 @@ const Header = () => {
             <div className="menu-section">
                 {/* Left Section */}
                 <div className="left-section">
-                    <button className="menu-button">
-                        <img src={`${process.env.PUBLIC_URL}/icons/menu-bars.svg`} alt="menu" />
-                    </button>
-                    <h2 onClick={GoToHome}>Order <span>Something</span></h2>
+                    <h2 onClick={GoToHome}>
+                        <img className="brand-icon" src={`${process.env.PUBLIC_URL}/icons/brand.png`} alt="menu" />
+                    </h2>
                 </div>
 
                 {/* Center Section */}

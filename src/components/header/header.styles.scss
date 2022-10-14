@@ -15,16 +15,15 @@
             margin: 0;
             cursor: pointer;
 
+            .brand-icon {
+                width: 80px;
+            }
             span {
                 font-weight: 300;
             }
         }
 
-        .menu-button {
-            background: none;    
-            border: none;
-            margin-right: 20px;
-        }
+
     }
 
 
@@ -42,13 +41,13 @@
             margin-right: 15px;
             border: none;
             font-size: 0;
-            background: #f3c074;
-            box-shadow: #888;
+            background: #f5efe6;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 
             &:first-letter {
                 font-size: 50px;
                 font-weight: 600;
-                color: #888;
+                color: #502314;
             }
 
             img {

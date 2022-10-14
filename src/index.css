@@ -7,8 +7,15 @@
   font-family: 'Varela Round', sans-serif;
 }
 
+@font-face {
+  font-family: "FlameFont";
+  src: url("../public/fonts/flame/Flame-Bold.woff");
+}
+
+
+
 body {
-  background: #f5efe6;
+  background: #efe2cf;
 }
 
 ul {

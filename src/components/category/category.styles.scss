@@ -3,6 +3,11 @@
     .category-wrapper {
         padding: 10px;
 
+        &:active {
+            transform: scale(0.98);
+            opacity: 0.9;
+        }
+
         .category-body {
             background: #f5efe6;
             box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
