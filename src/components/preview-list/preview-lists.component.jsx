@@ -31,7 +31,7 @@ const PreviewLists = () => {
                                 <ProductCard product={product} key={index}/>
                             ))}
                         </div>
-                </Fragment>
+                    </Fragment>
                 )
             })}
            

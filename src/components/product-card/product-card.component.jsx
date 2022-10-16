@@ -1,24 +1,32 @@
-import { useContext } from 'react';
-import { CartContext } from '../../context/cart.context';
+
+import { GetProductPriceRange  , GetMealChoices} from '../../utils/app-functions.utils';
+
 import './product-card.styles.scss';
 
 const ProductCard = ({product}) => {
 
-    const {addItemToCart} = useContext(CartContext);
 
-    const {image , name } = product;
 
-    const AddToCart = () => addItemToCart(product);
+    const {image , name  , description} = product;
     
+
+    const ProductPriceRange  = GetProductPriceRange(product);
+
+    const ShowMealChoices = () => GetMealChoices(product);
+
     return (
         <div className="product-card-container" >
-            <div className="product-image-container">
-                {image && 
-                    <img src={image?.thumbnail_small} alt={name}/>
+            <div className="product-image-container" onClick={ShowMealChoices}>
+                {image 
+                    ? <img src={image?.thumbnail_small} alt={name}/>
+                    : "No Image"
                 }
             </div>
-            <label className="product-title">{name}</label>  
-            <button onClick={AddToCart}>Order</button>
+            <div className='product-information-container'>
+                <label className="product-title">{name}</label>  
+                <label className='product-price'>₱ {ProductPriceRange}</label>
+                <p className='product-description'>{description}</p>
+            </div>
         </div>
     )
 }

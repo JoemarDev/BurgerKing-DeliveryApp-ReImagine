@@ -1,0 +1,22 @@
+.cart-button {
+    width: auto!important;
+    padding: 0px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span {
+        font-size: 15px;
+        font-weight: 600;
+        margin-right: 5px;
+    }
+
+    .total-cart-item {
+        color: #f81e00;
+    }
+    
+    img {
+        width: 40px!important;
+        height: 30px;
+    }
+}

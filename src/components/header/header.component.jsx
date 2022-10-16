@@ -1,4 +1,4 @@
-import { Fragment, useContext, useState } from 'react';
+import { Fragment, useContext } from 'react';
 import { Outlet, useNavigate,  } from 'react-router-dom';
 import Search from '../search/search.component';
 import './header.styles.scss';
@@ -8,11 +8,14 @@ import { siginInWithGooglePopup } from '../../utils/firebase.utils';
 import { UserContext } from '../../context/user.context';
 import UserImageName from '../user-image-name/user-image-name.component';
 import Cart from '../cart/cart.component';
+import { CartContext } from '../../context/cart.context';
+import CartButton from '../cart-button/cart-button.component';
 const Header = () => {
 
-    const [isCartOpen , setCartOpen] = useState(false);
 
     const {currentUser} = useContext(UserContext);
+
+    const {isCartOpen} = useContext(CartContext);
 
     const navigate  = useNavigate();
 
@@ -24,7 +27,6 @@ const Header = () => {
         await siginInWithGooglePopup();
     }
 
-    const toogleCart = () => setCartOpen(!isCartOpen);
 
     return (
         <Fragment>
@@ -44,9 +46,7 @@ const Header = () => {
                 {/* Right Section */}
 
                 <div className="right-section">
-                    <button className="cart-button" onClick={toogleCart}>
-                        <img src={`${process.env.PUBLIC_URL}/icons/bag.svg`} alt="bag"/>
-                    </button>
+                   <CartButton />
                 
                     {currentUser ? 
                         (<UserImageName user={currentUser}/>)
@@ -58,8 +58,8 @@ const Header = () => {
                         )
                     }
                 </div>
+
                 {isCartOpen && <Cart />}
-                
             </div>
 
             <Outlet />

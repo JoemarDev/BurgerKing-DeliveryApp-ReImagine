@@ -124,3 +124,83 @@ export const GetMenuPreview = () => {
 
     return ProductLists;
 }
+
+
+const GetComboMealsPriceRange = (combo_meal) => {
+
+    let MinPrice = 0;
+    let MaxPrice = 0;
+    
+    combo_meal.map((combo,index) => {
+        const {combo_groups} = combo;
+        combo_groups.map((item) => {
+            if(item.type_id == 1) {
+                const {combo_items} = item;
+                
+                combo_items.map((ci,index) => {
+                    const price = ci.price;
+                    if(MinPrice == 0) return MinPrice = price;
+                    if(MaxPrice == 0) return MaxPrice = price;
+
+                    if(price < MinPrice) return MinPrice = price;
+                    if(price > MaxPrice) return MaxPrice = price;
+                })
+            }
+        })
+    })
+
+    return `${MinPrice / 100} - ₱ ${MaxPrice / 100} `;
+
+}
+export const GetProductPriceRange = (product) => {
+
+    if(product.price_levels) {
+        const {price_levels} = product;
+
+        if(price_levels[0]['price'] === price_levels[price_levels.length - 1]['price']) {
+            return price_levels[0]['price'] / 100;
+        }
+
+        if(price_levels[0]['price'] !== price_levels[price_levels.length - 1]['price']) {
+            return `${price_levels[price_levels.length - 1]['price'] / 100} - ₱ ${price_levels[0]['price'] / 100} `;
+        }
+    }   
+   
+
+    if(product.combo_meals) {
+        const {combo_meals} = product;
+
+        return GetComboMealsPriceRange(combo_meals);
+        
+    }
+}
+
+
+
+export const GetMealChoices = (meal) => {
+
+    let meal_choices = [];
+
+    if(meal.combo_meals) {
+        const {combo_meals} = meal;
+        
+        combo_meals.map((item) => {
+            const {combo_groups} = item;
+            combo_groups.map((i) => {
+                if(i.type_id == 1) {
+                    const {combo_items} = i;
+                    combo_items.map((res) => {
+                        console.log(res);
+                        meal_choices = [...meal_choices , res];
+                    })
+                }
+            })
+        })
+        console.log(meal_choices);
+        return meal_choices;
+    }
+
+    console.log("No Fucking Combo Meal!!")
+    return "No Fucking Combo Meal!!";
+
+}

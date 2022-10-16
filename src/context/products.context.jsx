@@ -1,6 +1,6 @@
-import { createContext, useEffect, useState } from "react";
+
+import { createContext,  useState } from "react";
 import { 
-    GetRecommendedProduct , 
     GetCategoryProducts , 
     GetProductBySearch
 } from "../utils/app-functions.utils";
@@ -14,21 +14,18 @@ const setProductBySearch = (keyword) => {
 }
 
 export const ProductsContext = createContext({
-    products : {},
+    products : [],
 });
 
 
 export const ProductsProvider = ({children}) => {
+
     const [products , setProducts] = useState([]);
 
     const [productHeaderTitle , setProductHeaderTitle] = useState("Featured");
+    
+    const [searchKeyword , setSearchKeyWord] = useState('');
 
-    useEffect(() => {
-        GetCategoryProducts();
-        const productsResult = GetRecommendedProduct();
-        setProducts(productsResult);
-        GetProductBySearch("");
-    },[]);
 
     const GetProductByCategory = (category_name) => {
         setProductHeaderTitle(category_name)
@@ -36,15 +33,14 @@ export const ProductsProvider = ({children}) => {
     }
 
     const GetproductBySearch = (keyword) => {
-        
+        setSearchKeyWord(keyword);
         let title = `Result for : ${keyword}`;
         if(!keyword) title = "Featured";
-
         setProductHeaderTitle(title);
         setProducts(setProductBySearch(keyword));
     }
 
-    const value = {products , GetProductByCategory , GetproductBySearch , productHeaderTitle};
+    const value = {products , searchKeyword , GetProductByCategory , GetproductBySearch , productHeaderTitle};
 
     return <ProductsContext.Provider value={value}>{children}</ProductsContext.Provider>
 }
