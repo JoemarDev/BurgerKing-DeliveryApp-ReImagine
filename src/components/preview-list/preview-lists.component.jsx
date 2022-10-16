@@ -1,6 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { GetMenuPreview } from "../../utils/app-functions";
+import { GetMenuPreview } from "../../utils/app-functions.utils";
+import ProductCard from "../product-card/product-card.component";
 import ProductHeader from "../product-header/product-header.component";
 
 const PreviewLists = () => {
@@ -26,20 +27,9 @@ const PreviewLists = () => {
                     <Fragment key={idx}>
                         <ProductHeader customTitle={name} onClick={() => NavigateToMeal(name)} />
                         <div className="product-lists">
-                            {menu.map((product , index) => {
-                                const {image , name } = product;
-                                
-                                return (
-                                    <div className="product-card-container" key={index}>
-                                        <div className="product-image-container">
-                                            {image && 
-                                                <img src={image?.thumbnail_small} alt={name}/>
-                                            }
-                                        </div>
-                                        <label className="product-title">{name}</label>  
-                                    </div>
-                                )
-                            })}
+                            {menu.map((product , index) => (
+                                <ProductCard product={product} key={index}/>
+                            ))}
                         </div>
                 </Fragment>
                 )

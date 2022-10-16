@@ -3,7 +3,7 @@ import {
     GetRecommendedProduct , 
     GetCategoryProducts , 
     GetProductBySearch
-} from "../utils/app-functions";
+} from "../utils/app-functions.utils";
 
 const setProductByCategory = (category_name) => {
     return GetCategoryProducts(category_name);
@@ -27,7 +27,7 @@ export const ProductsProvider = ({children}) => {
         GetCategoryProducts();
         const productsResult = GetRecommendedProduct();
         setProducts(productsResult);
-        GetProductBySearch("cheese");
+        GetProductBySearch("");
     },[]);
 
     const GetProductByCategory = (category_name) => {
@@ -40,7 +40,7 @@ export const ProductsProvider = ({children}) => {
         let title = `Result for : ${keyword}`;
         if(!keyword) title = "Featured";
 
-        setProductHeaderTitle(title)
+        setProductHeaderTitle(title);
         setProducts(setProductBySearch(keyword));
     }
 

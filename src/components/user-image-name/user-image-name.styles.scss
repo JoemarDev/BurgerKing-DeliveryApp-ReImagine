@@ -1,0 +1,25 @@
+.profile-button {
+    background: #ff8725;
+}
+
+
+.profile-image {
+    position: absolute;
+    height: 90%;
+    width: 90%!important;
+    left: 50%;
+    top: 50%;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    transform: translate(-50% , -50%);
+}
+
+.logout-button {
+    margin-top: 5px;
+    padding: 5px;
+    background: #f11d00;
+    color: #fff;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+}

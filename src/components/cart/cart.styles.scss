@@ -1,0 +1,27 @@
+.cart-container {
+    position: fixed;
+    right: 0;
+    width: 35%;
+    background: #efe2cf;
+    height: 150vh;
+    top: 50%;
+    z-index: 10;
+    transform: translate(0% , -50%);
+    border-top-left-radius: 100%;
+    border-bottom-left-radius: 100%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-overlay {
+
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9;
+    background: #5b231391;
+    top: 0;
+    left: 0;
+}

@@ -1,5 +1,5 @@
 import { useEffect , useState} from "react";
-import { GetProductCategories } from "../../utils/app-functions";
+import { GetProductCategories } from "../../utils/app-functions.utils";
 import Slider from "react-slick";
 
 import Config from './carousel.config.json';

@@ -1,15 +1,31 @@
-import { Fragment } from 'react';
+import { Fragment, useContext, useState } from 'react';
 import { Outlet, useNavigate,  } from 'react-router-dom';
 import Search from '../search/search.component';
 import './header.styles.scss';
 
+
+import { siginInWithGooglePopup } from '../../utils/firebase.utils';
+import { UserContext } from '../../context/user.context';
+import UserImageName from '../user-image-name/user-image-name.component';
+import Cart from '../cart/cart.component';
 const Header = () => {
+
+    const [isCartOpen , setCartOpen] = useState(false);
+
+    const {currentUser} = useContext(UserContext);
 
     const navigate  = useNavigate();
 
     const GoToHome = () => {
         navigate('/');
     }
+
+    const SignInWithGoogle = async () => {
+        await siginInWithGooglePopup();
+    }
+
+    const toogleCart = () => setCartOpen(!isCartOpen);
+
     return (
         <Fragment>
             <div className="menu-section">
@@ -28,14 +44,22 @@ const Header = () => {
                 {/* Right Section */}
 
                 <div className="right-section">
-                    <button className="cart-button">
+                    <button className="cart-button" onClick={toogleCart}>
                         <img src={`${process.env.PUBLIC_URL}/icons/bag.svg`} alt="bag"/>
                     </button>
-                    <button className="profile-button">
-                        Joemar
-                    </button>
-                    <label>Hello, Joemar</label>
+                
+                    {currentUser ? 
+                        (<UserImageName user={currentUser}/>)
+                        :
+                        (
+                            <button onClick={SignInWithGoogle}>
+                                <img src={`${process.env.PUBLIC_URL}/icons/user.svg`} alt="user"/>
+                            </button>
+                        )
+                    }
                 </div>
+                {isCartOpen && <Cart />}
+                
             </div>
 
             <Outlet />

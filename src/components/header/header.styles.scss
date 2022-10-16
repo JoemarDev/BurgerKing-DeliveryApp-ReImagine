@@ -32,8 +32,13 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
+        z-index: 20;
 
+
+        
         button {
+            overflow: hidden;
             height: 70px;
             width: 70px;
             position: relative;
@@ -43,6 +48,7 @@
             font-size: 0;
             background: #f5efe6;
             box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+            cursor: pointer;
 
             &:first-letter {
                 font-size: 50px;
@@ -50,12 +56,18 @@
                 color: #502314;
             }
 
+            &:active {
+                transform: scale(0.9);
+            }
+
+
             img {
                 width: 40%;
             }
         }
 
         label {
+            display: block;
             font-weight: 600;
         }
 

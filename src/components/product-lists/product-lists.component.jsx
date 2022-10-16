@@ -1,5 +1,6 @@
 import { Fragment, useContext } from "react";
 import { ProductsContext } from "../../context/products.context";
+import ProductCard from "../product-card/product-card.component";
 import ProductHeader from "../product-header/product-header.component";
 import './product-lists.styles.scss'
 
@@ -11,20 +12,9 @@ const ProductLists = () => {
         <Fragment>
             <ProductHeader />
             <div className="product-lists">
-                {products && products.map((product , index) => {
-                    const {image , name } = product;
-                    
-                    return (
-                        <div className="product-card-container" key={index}>
-                            <div className="product-image-container">
-                                {image && 
-                                    <img src={image?.thumbnail_small} alt={name}/>
-                                }
-                            </div>
-                            <label className="product-title">{name}</label>  
-                        </div>
-                    )
-                })}
+                {products && products.map((product , index) => (
+                    <ProductCard product={product} key={index}/>  
+                ))}
             </div>
         </Fragment>
     );
