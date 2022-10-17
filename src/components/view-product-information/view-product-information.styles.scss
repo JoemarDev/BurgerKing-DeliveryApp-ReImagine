@@ -1,0 +1,45 @@
+.view-product-informations {
+    line-height: 30px;
+    color: #502314;  
+    overflow-y: scroll;
+    padding: 0px 30px;
+    height: 500px;
+    padding-top: 20px;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+        background: #f5ebdc;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #50231430;
+        border-radius: 100px;
+    }
+
+    h3 {
+        font-family: "FlameFont";
+      
+    }
+
+    label {
+        font-weight: 600;
+    }
+
+    p {
+        font-size: 12px;
+        line-height: 20px;
+    }
+
+    .product-allergens{
+        display: flex;
+        
+        label {
+            margin-right: 5px;
+        }
+        .product-lists-allergens {
+            display: flex;
+        }
+    }
+
+    
+}

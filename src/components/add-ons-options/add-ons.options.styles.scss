@@ -1,0 +1,55 @@
+
+.add-ons-options {
+    font-weight: 600;
+    display: flex;
+    .adds-ons-name {
+        font-size: 16px;
+        display: block;
+    }
+
+    .adds-ons-price {
+        font-size: 14px;
+        
+    }
+
+    .add-ons-selector {
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+
+        .active {
+            background :  #d62300;
+            font-size: 18px;
+            color: #fff;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                width: auto;
+                margin-left: -2px;
+            }
+        }
+
+        button {
+            height: 35px;
+            width: 35px;
+            font-size: 20px;
+            border-radius: 100%;
+            font-size: 0;
+            border:1px solid #bba391;
+            background: transparent;
+            cursor: pointer;
+
+            &:active {
+                transform: scale(0.9);
+                opacity: 0.9;
+            }
+
+            img {
+                width: 0;
+            }
+        }
+    }
+}

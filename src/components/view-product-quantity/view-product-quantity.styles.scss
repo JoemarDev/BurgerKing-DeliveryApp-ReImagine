@@ -1,0 +1,21 @@
+.view-product-quantity {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    .view-product-quanity-buttons button {
+        height: 40px;
+        width: 40px;
+        border-radius: 100%;
+        border: 2px solid #d62300;
+        color: #d62300;
+        background: transparent;
+        font-size: 30px;
+        margin-left: 15px;
+        cursor: pointer;
+
+        &:active {
+            transform: scale(0.95);
+        }
+    }
+}

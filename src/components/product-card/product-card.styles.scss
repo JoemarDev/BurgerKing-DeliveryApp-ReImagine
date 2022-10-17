@@ -23,6 +23,10 @@
             margin-bottom: 20px;
             color: #50231499;
 
+            &:active {
+                transform: scale(0.98);
+            }
+
             img {
                 width: 250px;
             }

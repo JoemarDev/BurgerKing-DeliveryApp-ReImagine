@@ -18,6 +18,11 @@ body {
   background: #efe2cf;
 }
 
+.divider {
+  border-top:1px solid #cdc5ba;
+  margin: 10px 0px;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -35,4 +40,14 @@ a {
 
 .c-pointer {
   cursor: pointer;
+}
+
+.disabled {
+  border: 2px solid #2c2c3133!important;
+  color: #2c2c3133!important;
+  cursor: default!important;
+}
+
+.disabled:active {
+  transform: scale(1)!important;
 }
