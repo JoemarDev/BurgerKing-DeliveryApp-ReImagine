@@ -1,14 +1,27 @@
+import { useContext } from 'react';
+import { TempBasketContext } from '../../context/temp-basket.context';
 import './view-product-quantity.styles.scss';
 
-const ViewProductQuantity = ({quantity , DecrementQuantity , IncrementQuantity}) => {
+const ViewProductQuantity = () => {
+
+    const { 
+        incrementTempProductQuantity,
+        decrementTempProductQuantity,
+        productQuantity,
+    } = useContext(TempBasketContext);
+    
+    const incrementHanlder = () => incrementTempProductQuantity();
+
+    const derementHandler = () => decrementTempProductQuantity();
+
     return (
         <div className="view-product-quantity">
             <div className="view-product-quanity-title">
-                <label>Quantity : {quantity}</label>
+                <label>Quantity : {productQuantity}</label>
             </div>
             <div className="view-product-quanity-buttons">
-                <button className={`${quantity > 1 ? '' : 'disabled'}`} onClick={DecrementQuantity}>&#8722;</button>
-                <button onClick={IncrementQuantity}>&#43;</button>
+                <button className={`${productQuantity > 1 ? '' : 'disabled'}`} onClick={derementHandler}>&#8722;</button>
+                <button onClick={incrementHanlder}>&#43;</button>
             </div>
         </div>
     )

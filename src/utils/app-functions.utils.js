@@ -1,5 +1,6 @@
 /* eslint-disable */
 import Product from '../JSON/Product.json';
+import { FormatToMoney } from './basic.utils';
 
 export const GetProductCategories =  () => {
     let Categroies = [];
@@ -154,16 +155,22 @@ const GetComboMealsPriceRange = (combo_meal) => {
 }
 export const GetProductPriceRange = (product) => {
 
+    if(product.price) return FormatToMoney(product.price);
+    
     if(product.price_levels) {
         const {price_levels} = product;
 
         if(price_levels[0]['price'] === price_levels[price_levels.length - 1]['price']) {
-            return price_levels[0]['price'] / 100;
+         
+            return FormatToMoney(price_levels[0]['price']);
+        }
+      
+        if(price_levels[0]['price'] !== price_levels[price_levels.length - 1]['price']) {
+            return `${FormatToMoney(price_levels[price_levels.length - 1]['price'])} - ₱ ${FormatToMoney(price_levels[0]['price'])} `;
         }
 
-        if(price_levels[0]['price'] !== price_levels[price_levels.length - 1]['price']) {
-            return `${price_levels[price_levels.length - 1]['price'] / 100} - ₱ ${price_levels[0]['price'] / 100} `;
-        }
+        
+        return price_levels[0]['price'];
     }   
    
 
@@ -190,17 +197,15 @@ export const GetMealChoices = (meal) => {
                 if(i.type_id == 1) {
                     const {combo_items} = i;
                     combo_items.map((res) => {
-                        console.log(res);
                         meal_choices = [...meal_choices , res];
                     })
                 }
             })
         })
-        console.log(meal_choices);
         return meal_choices;
     }
 
-    return "No Fucking Combo Meal!!";
+    return false;
 
 }
 

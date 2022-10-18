@@ -2,9 +2,12 @@
     line-height: 30px;
     color: #502314;  
     overflow-y: scroll;
+    overflow-x: hidden;
     padding: 0px 30px;
     height: 500px;
     padding-top: 20px;
+    padding-bottom: 40px;
+    position: relative;
 
     &::-webkit-scrollbar {
         width: 5px;

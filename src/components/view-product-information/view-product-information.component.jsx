@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { TempBasketContext } from "../../context/temp-basket.context";
 import {  GetProductPriceRange } from "../../utils/app-functions.utils";
 import ProductAllergens from "../product-allergens/product-allergens.component";
@@ -10,20 +10,14 @@ import './view-product-information.styles.scss';
 
 const ViewProductInformation = ({product}) => {
 
-    const {setCurrentMenuScroll} = useContext(TempBasketContext);
+  
+    const {setCurrentMenuScroll}  = useContext(TempBasketContext);
 
     const scrollRef = useRef();
 
     const {name  , description ,allergens , modifier_groups} = product;
-    
-    const [quantity , setQuantity] = useState(1);
 
     const ProductPrice = GetProductPriceRange(product);
-
-    const IncrementQuantity = () => setQuantity(quantity + 1);
-
-    const DecrementQuantity = () => setQuantity(quantity === 1 ? 1 : quantity - 1);
-    
 
     useEffect(() => {
 
@@ -47,21 +41,14 @@ const ViewProductInformation = ({product}) => {
             <label>₱ {ProductPrice}</label>
             <p>{description}</p>
 
-            {
-                allergens.length !== 0 
-                &&  <ProductAllergens allergens={allergens}/>
-            }
+            { allergens &&  <ProductAllergens allergens={allergens}/>}
 
             <div className="divider"></div>
             
-            <ViewProductQuantity 
-                IncrementQuantity={IncrementQuantity}
-                DecrementQuantity={DecrementQuantity}
-                quantity={quantity}
-            />
+            <ViewProductQuantity  />
 
-            {modifier_groups.map((item , index) => <ViewProductAddOns key={index} addons={item}/>)}
-            
+            {modifier_groups  && modifier_groups?.map((item , index) => <ViewProductAddOns key={index} addons={item}/>)}
+                
         </div> 
     )
 }

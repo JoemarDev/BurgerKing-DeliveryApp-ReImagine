@@ -1,6 +1,7 @@
 
 import { useContext, useEffect, useState } from 'react';
 import { TempBasketContext } from '../../context/temp-basket.context';
+import { FormatToMoney } from '../../utils/basic.utils';
 import './add-ons.options.styles.scss';
 
 const AddOnsOptions = ({modifiers , changeHanlder , array_key_name }) => {
@@ -31,7 +32,11 @@ const AddOnsOptions = ({modifiers , changeHanlder , array_key_name }) => {
             
             <div>
                 <span className='adds-ons-name'>{name}</span>
-                <span className='adds-ons-price'>+ ₱ {price / 100}</span>
+                <span className='adds-ons-price'>
+                    {price === 0 && "-"}
+                    {price !== 0 && `+ ₱ ${FormatToMoney(price)}`}
+                    
+                </span>
             </div>
         
         </div>

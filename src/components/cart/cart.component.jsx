@@ -22,13 +22,17 @@ const Cart = () => {
                     <label>You're Cart is empty.</label>
                     <ul>
                         {cartItems.map((item,index)=> {
-                            const {name , image , price_levels} = item;
-                          
+
+                            const product = item.product;
+                            const productQuantity = item['product-quantity'];
+                            const productAddOns = item['product-add-ons'];
+                            
+
+                            const {name , image } = product;
                             return(
                                 <li key={index}>
                                     <img src={image.thumbnail_small} alt="" />
                                     {name}
-                                    {price_levels[0].price / 100}
                                 </li>
                             )
                         })}

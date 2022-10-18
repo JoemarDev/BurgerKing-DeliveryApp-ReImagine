@@ -1,14 +1,19 @@
 /* eslint-disable */
-import { useState } from 'react';
+import {  useEffect, useState } from 'react';
 import { GetProductPriceRange  , GetMealChoices} from '../../utils/app-functions.utils';
 import ViewProduct from '../view-product/view-product.component';
-
+import ViewMealChoices from '../view-meal-choices/view-meal-choices.component';
 import './product-card.styles.scss';
 
 const ProductCard = ({product}) => {
 
+    const [currentViewProduct , setCurrentViewProduct] = useState(product);
 
     const [isProductViewed , setIsProductViewed] = useState(false);
+
+    const [isChoiceProductView , setChoiceProductView] = useState(false);
+    
+    const [mealChoices , setMealChoices] = useState([]);
 
     const {image , name  , description} = product;
     
@@ -16,13 +21,36 @@ const ProductCard = ({product}) => {
 
     const ShowMealChoices = () => GetMealChoices(product);
     
+    const ProductViewHandler = () => {
+        let MealChoice = ShowMealChoices();
+        if(!MealChoice) return setIsProductViewed(true);
+        ToogleChoiceProductView();
+        
+    }
+    
+    const ProductViewClose = () => setIsProductViewed(false);
 
-    const ToogleProductView = () => setIsProductViewed(!isProductViewed);
+
+    const ToogleChoiceProductView = () => {
+        setChoiceProductView(true);
+        setMealChoices(ShowMealChoices());
+    }
+
+
+    const HandleViewComboProduct = (meal) => {
+        setChoiceProductView(false);
+        setCurrentViewProduct(meal);
+        setIsProductViewed(true);
+    }
+
+    useEffect(() => {
+        setCurrentViewProduct(product)
+    },[product]);
     
 
     return (
-        <div className="product-card-container" >
-            <div className="product-image-container c-pointer" onClick={ToogleProductView} >
+        <div className="product-card-container">
+            <div className="product-image-container c-pointer" onClick={ProductViewHandler} >
                 {image 
                     ? <img src={image?.thumbnail_small} alt={name}/>
                     : "No Image"
@@ -33,8 +61,10 @@ const ProductCard = ({product}) => {
                 <label className='product-price'>₱ {ProductPriceRange}</label>
                 <p className='product-description'>{description}</p>
             </div>
-            {isProductViewed && <ViewProduct product={product} close={ToogleProductView}/>}
-            
+                
+            {isProductViewed && <ViewProduct product={currentViewProduct} close={ProductViewClose}/>}
+       
+            {isChoiceProductView && <ViewMealChoices combo={mealChoices} pickHandler={HandleViewComboProduct}/> }
         </div>
     )
 }

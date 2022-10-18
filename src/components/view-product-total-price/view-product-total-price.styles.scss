@@ -1,0 +1,28 @@
+.view-product-total-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 100px;
+    width: 95%;
+    position: absolute;
+    background: #d62300;
+    border: none;
+    transform: translate(-50% , 0);
+    left: 50%;
+    bottom: 12px;
+    cursor: pointer;
+
+    &:active {
+        transform: translate(-50% , 0) scale(0.98);
+        opacity: 0.8;
+    }
+
+    label {
+        color: #f5ebdc;
+        font-weight: 300;
+        font-family: "FlameFont";
+        font-size: 20px;
+        padding: 5px 20px;
+    }
+}
