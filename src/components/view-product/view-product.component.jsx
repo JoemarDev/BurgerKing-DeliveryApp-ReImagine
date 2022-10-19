@@ -8,7 +8,7 @@ import ViewProductTotalPrice from "../view-product-total-price/view-product-tota
 
 import './view-product.styles.scss';
 
-const ViewProduct = ({product , close}) => {
+const ViewProduct = ({product , close  ,updateOn}) => {
 
     const {name , image } = product;
 
@@ -51,7 +51,7 @@ const ViewProduct = ({product , close}) => {
                         </div>
 
                         <ViewProductInformation product={product}/>
-                        <ViewProductTotalPrice  close={close}/>
+                        <ViewProductTotalPrice  close={close} updateOn={updateOn}/>
                     </div>
 
                   

@@ -9,10 +9,10 @@
 }
 
 .view-meal-choices-container {
-    width: 500px;
+    width: 550px;
     max-width: 100%;
     background: #f5ebdc;
-
+    max-width: 90%;
     position: fixed;
     left: 50%;
     top: 50%;
@@ -22,9 +22,64 @@
     border-radius: 20px;
     box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%), 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%);
 
+    .close-combo-view {
+        position: absolute;
+        right:20px ;
+        top: 10px;
+        font-size: 25px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+    }
     h2 {
         font-family: "FlameFont";
         color: #502314;
         font-size: 30px;
+        margin-bottom: 40px;
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        cursor: pointer;
+
+        .view-meal-choices-image {
+            width: 20%;
+            margin-right: 10px;
+
+            img {
+                width: 100%;
+                border-radius: 5px;
+            }
+        }
+
+        .carret-icon {
+            width: 15px;
+            height: 15px;
+
+        }
+
+
+        .view-meal-choices-basic-information {
+            font-size: 16px;
+            font-weight: 600;
+            width: 80%;
+            padding: 5px;
+            padding-right: 20px;
+
+            .view-meal-choices-combo-name {
+                font-family: "FlameFont";
+                color: #502314;
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            .view-meal-choice-price {
+                font-size: 12px;
+                font-weight: 300;
+            }
+        }
     }
 }

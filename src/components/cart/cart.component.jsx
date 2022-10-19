@@ -1,5 +1,9 @@
-import { useContext, useEffect } from 'react';
+import { Fragment, useContext, useEffect } from 'react';
 import { CartContext } from '../../context/cart.context';
+import CartCheckoutButton from '../cart-checkout-button/cart-checkout-button.component';
+import CartEmptyPlaceHolder from '../cart-emplty-placeholder/cart-empty-placeholder.component';
+import CartItemLists from '../cart-item-lists/cart-item-lists.component';
+import CartTotalAmount from '../cart-total-amount/cart-total-amount.component';
 import './cart.styles.scss';
 const Cart = () => {
 
@@ -18,26 +22,20 @@ const Cart = () => {
         <>
             <div className='cart-overlay'></div>
             <div className="cart-container">
-                <div>
-                    <label>You're Cart is empty.</label>
-                    <ul>
-                        {cartItems.map((item,index)=> {
+                <div className='inner-cart-container'>
+                    <h2 className='cart-header-title'>My Order</h2>
 
-                            const product = item.product;
-                            const productQuantity = item['product-quantity'];
-                            const productAddOns = item['product-add-ons'];
-                            
+                    {cartItems.length > 0  && <CartItemLists cartItems={cartItems}/> }
 
-                            const {name , image } = product;
-                            return(
-                                <li key={index}>
-                                    <img src={image.thumbnail_small} alt="" />
-                                    {name}
-                                </li>
-                            )
-                        })}
-                        
-                    </ul>
+                    {cartItems.length === 0 &&  <CartEmptyPlaceHolder />}
+                   
+                    {cartItems.length > 0 &&
+                        <Fragment>
+                            <CartTotalAmount/>
+                            <CartCheckoutButton />
+                        </Fragment>
+                    }
+
                 </div>
                
             </div>

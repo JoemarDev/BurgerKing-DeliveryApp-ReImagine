@@ -30,6 +30,7 @@ const ProductCard = ({product}) => {
     
     const ProductViewClose = () => setIsProductViewed(false);
 
+    const ComboViewClose = () => setChoiceProductView(false);
 
     const ToogleChoiceProductView = () => {
         setChoiceProductView(true);
@@ -64,7 +65,7 @@ const ProductCard = ({product}) => {
                 
             {isProductViewed && <ViewProduct product={currentViewProduct} close={ProductViewClose}/>}
        
-            {isChoiceProductView && <ViewMealChoices combo={mealChoices} pickHandler={HandleViewComboProduct}/> }
+            {isChoiceProductView && <ViewMealChoices combo={mealChoices} close={ComboViewClose} pickHandler={HandleViewComboProduct}/> }
         </div>
     )
 }

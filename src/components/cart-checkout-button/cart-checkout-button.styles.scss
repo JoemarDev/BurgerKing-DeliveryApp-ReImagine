@@ -1,0 +1,29 @@
+.cart-checkout-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 100px;
+    width: 100%;
+
+    margin-top: 20px;
+    background: #d62300;
+    border: none;
+
+
+
+    cursor: pointer;
+
+    &:active {
+        transform: scale(0.98);
+        opacity: 0.8;
+    }
+
+    label {
+        color: #f5ebdc;
+        font-weight: 300;
+        font-family: "FlameFont";
+        font-size: 20px;
+        padding: 5px 20px;
+    }
+}

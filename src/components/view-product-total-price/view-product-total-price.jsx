@@ -4,7 +4,7 @@ import './view-product-total-price.styles.scss';
 import { FormatToMoney } from '../../utils/basic.utils';
 import { CartContext } from '../../context/cart.context';
 
-const ViewProductTotalPrice = ({close}) => {
+const ViewProductTotalPrice = ({close ,updateOn}) => {
     const {tempProductPrice} = useContext(TempBasketContext);
 
     const {
@@ -13,7 +13,7 @@ const ViewProductTotalPrice = ({close}) => {
         currentProduct
     } = useContext(TempBasketContext);
 
-    const {addItemToCart} = useContext(CartContext);
+    const {addItemToCart , updateItemFromCart} = useContext(CartContext);
 
     const AddProductToCart = () => {
 
@@ -23,7 +23,12 @@ const ViewProductTotalPrice = ({close}) => {
             "product-add-ons" : currentAddOns,
         };
 
-        addItemToCart(product);
+        if(updateOn) {
+            updateItemFromCart(product)
+        } else {
+            addItemToCart(product);
+        }
+      
         close();
     }
 
@@ -31,7 +36,7 @@ const ViewProductTotalPrice = ({close}) => {
         <>
             <button className='view-product-total-price' onClick={AddProductToCart}>
                 <label>P {FormatToMoney(tempProductPrice)}</label>
-                <label>Add</label>
+                <label>{updateOn ? 'Update' : 'Add'}</label>
             </button>
         </>
     )

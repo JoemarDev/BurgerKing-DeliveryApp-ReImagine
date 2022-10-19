@@ -13,6 +13,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-left: 4%;
+    padding-top: 100px;
+    
+    .inner-cart-container {
+        width: 500px;
+    }
+    .cart-header-title {
+
+        font-size: 35px;
+        font-family: "FlameFont";
+        color: #502314;
+    }
+
 }
 
 .cart-overlay {

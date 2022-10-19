@@ -53,6 +53,7 @@ export const TempBasketContext = createContext({
     currentMenuScroll : 0 ,
 });
 
+
 export const TempBasketProvider = ({children}) => {
 
     const [currentProduct , setCurrentProduct] = useState();
@@ -79,24 +80,39 @@ export const TempBasketProvider = ({children}) => {
         setTempProductPrice(0);
     }
 
+
     const incrementTempProductQuantity = () => setProductQuantity(productQuantity + 1);
 
     const decrementTempProductQuantity = () => setProductQuantity(productQuantity <= 1 ? 1 : productQuantity - 1);
 
     const setTempBasketProduct = (product) => setCurrentProduct(product);
 
+    const setTempBasketToCustomize = (product,quantity,addons) => {
+        setCurrentProduct(product)
+        setProductQuantity(quantity);
+        setCurrentAddOns(addons);
+        setTempProductPrice(GetTotalProductAmount(quantity , computeAddOnPrice(addons) , product));
+    }
+
+
     useEffect(() => {
         setTempProductPrice(GetTotalProductAmount(productQuantity , addOnPrice , currentProduct));
     },[productQuantity , addOnPrice , currentProduct]);
     
-    useEffect(() => {
+
+    const computeAddOnPrice = (addons) => {
         let defaultPrice = 0;
 
-        Object.keys(currentAddOns).map((i) => {
-            currentAddOns[i].map((item) =>  defaultPrice += item.price);
-        })
+        Object.keys(addons).map((i) => {
+            addons[i].map((item) =>  defaultPrice += item.price);
+        });
 
-        setAddOnsPrice(defaultPrice);
+        return defaultPrice;
+    }
+
+    useEffect(() => {
+     
+        setAddOnsPrice(computeAddOnPrice(currentAddOns));
 
     },[currentAddOns]);
 
@@ -113,6 +129,7 @@ export const TempBasketProvider = ({children}) => {
         incrementTempProductQuantity,
         decrementTempProductQuantity,
         setTempBasketProduct,
+        setTempBasketToCustomize,
     }
     
 

@@ -1,0 +1,35 @@
+
+.cart-total-amount-section {
+    border-top: 1px solid #5023142c;
+    padding-top: 20px;
+    color: #502314;
+
+    .cart-total-info-list {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 5px;
+
+        
+        .section-title {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .section-amount {
+            text-align: right;
+            padding-right: 15px;
+
+            .total-amount {
+                font-size: 25px;
+                font-family: "FlameFont";
+            }
+
+            span {
+                display: block;
+            }
+        }
+
+    }
+
+}

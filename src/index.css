@@ -16,7 +16,23 @@
 
 body {
   background: #efe2cf;
+  min-height: 969px;
 }
+
+
+
+body::-webkit-scrollbar-thumb {
+  background: rgba(80, 35, 20, 0.1882352941);
+  border-radius: 100px;
+}
+
+body::-webkit-scrollbar {
+  width: 5px;
+  background: #efe2cf;
+}
+
+
+
 
 .divider {
   border-top:1px solid #cdc5ba;
