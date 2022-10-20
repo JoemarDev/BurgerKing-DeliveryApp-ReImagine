@@ -1,5 +1,6 @@
 @import-normalize;
 
+@import './media-queries.scss';
 * {
   margin: 0;
   padding: 0;
@@ -16,7 +17,8 @@
 
 body {
   background: #efe2cf;
-  min-height: 969px;
+
+
 }
 
 
@@ -32,8 +34,6 @@ body::-webkit-scrollbar {
 }
 
 
-
-
 .divider {
   border-top:1px solid #cdc5ba;
   margin: 10px 0px;
@@ -47,7 +47,19 @@ ul {
 .container {
   max-width: 1400px;
   margin: auto;
+  
+    @include lt-md {
+  
+      height: 92vh;
+      padding-bottom: 5vh;
+      overflow-y: scroll;
+      
+  }
+
+
 }
+
+
 
 a {
   text-decoration: none;

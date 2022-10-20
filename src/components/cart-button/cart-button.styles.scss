@@ -1,9 +1,16 @@
+@import '../../media-queries.scss';
+
 .cart-button {
     width: auto!important;
     padding: 0px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @include lt-md {
+        position: fixed;
+
+    }
 
     span {
         font-size: 15px;

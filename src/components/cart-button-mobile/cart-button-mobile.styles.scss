@@ -1,0 +1,56 @@
+@import '../../media-queries.scss';
+
+.cart-mobile-button {
+   
+    overflow: hidden;
+    height: 50px;
+    width: 70px;
+    position: fixed;
+    border-radius: 100px;
+    margin-right: 15px;
+    border: none;
+    font-size: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #d62300;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    cursor: pointer;
+    color: #f5ebdc;
+    display: none;
+
+
+
+
+
+    img {
+        width: 40%;
+    }
+
+    @include lt-md {
+        box-sizing: border-box;
+        display: block;
+        bottom: 1%;
+        width: 90%;
+        z-index: 10;
+        transform: translate(-50%, -50%);
+        left: 50%;
+
+    }
+
+    span {
+        font-size: 16px;
+        font-weight: 600;
+        margin-right: 5px;
+        font-family: "FlameFont", Arial, sans-serif;
+    }
+
+    .total-cart-item {
+        color: #fff;
+    }
+    
+    img {
+        width: 40px!important;
+        height: 30px;
+    }
+}

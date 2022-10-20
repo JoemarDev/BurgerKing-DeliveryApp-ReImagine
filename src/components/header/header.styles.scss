@@ -1,13 +1,20 @@
+@import '../../media-queries.scss';
+
 .menu-section {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding:  50px 0px;
+    
+    @include lt-md {
+        padding: 10px;
+    }
 
 
     .left-section {
         display: flex;
         align-items: center;
+
 
         h2 {
             font-size: 30px;
@@ -17,6 +24,8 @@
 
             .brand-icon {
                 width: 80px;
+  
+
             }
             span {
                 font-weight: 300;
@@ -35,7 +44,10 @@
         position: relative;
         z-index: 20;
 
-
+        
+        @include lt-md {
+           display: none;
+        }
         
         button {
             overflow: hidden;
@@ -73,6 +85,9 @@
 
 
     }
+
+
+ 
 
 
 

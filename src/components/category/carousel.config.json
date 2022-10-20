@@ -4,5 +4,18 @@
     "arrows" : false,
     "speed": 500,
     "slidesToShow": 5,
-    "slidesToScroll": 4
+    "slidesToScroll": 4,
+    "responsive": [
+        {
+          "breakpoint": 1024,
+            "settings": {
+                "dots": false,
+                "infinite": true,
+                "slidesToShow": 1,
+                "slidesToScroll": 2,
+                "variableWidth": true
+            }
+        }
+    
+    ]
 }

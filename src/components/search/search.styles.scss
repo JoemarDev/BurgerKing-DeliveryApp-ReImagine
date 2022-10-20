@@ -1,3 +1,6 @@
+@import '../../media-queries.scss';
+
+
 .search-container {
     padding: 10px 20px;
     width: 400px;
@@ -5,6 +8,11 @@
     border-radius: 20px;
     position: relative;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+    
+    @include lt-md {
+        width: 100%;
+    }
 
     .search-icon {
         position: absolute;

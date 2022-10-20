@@ -1,5 +1,10 @@
+@import '../../media-queries.scss';
 .product-header {
     padding: 50px 0px;
+
+    @include lt-xl {
+        padding: 20px 20px;
+    }
 
     h2 {
         font-family: 'FlameFont', Arial, sans-serif!important;

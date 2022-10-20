@@ -10,6 +10,7 @@ import UserImageName from '../user-image-name/user-image-name.component';
 import Cart from '../cart/cart.component';
 import { CartContext } from '../../context/cart.context';
 import CartButton from '../cart-button/cart-button.component';
+import CartMobileButton from '../cart-button-mobile/cart-button-mobile.component';
 const Header = () => {
 
 
@@ -59,9 +60,9 @@ const Header = () => {
                     }
                 </div>
 
-                {isCartOpen && <Cart />}
+                {isCartOpen && <Cart/>}
             </div>
-
+            <CartMobileButton />
             <Outlet />
         </Fragment>
     )

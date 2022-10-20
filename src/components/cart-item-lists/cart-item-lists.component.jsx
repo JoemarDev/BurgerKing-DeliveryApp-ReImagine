@@ -1,3 +1,4 @@
+/* eslint-disable */
 import './cart-item-lists.styles.scss';
 import { FormatToMoney } from '../../utils/basic.utils';
 import CartAddOnsLists from '../cart-addons-lists/cart-addons-lists.component';
@@ -69,7 +70,7 @@ const CartItemLists = ({cartItems}) => {
 
                                 <div className='inner-child-flex'>
                                     <span className='list-quantity'>{productQuantity}</span>
-                                    <span className='list-title'>{name}</span>
+                                    <span className='list-title' onClick={viewUpdateOrderHandler}>{name}</span>
                                     <span className='list-amount'>₱ {FormatToMoney(ListsPrice + AddOnsTotalPrice)}</span>
                                     <button className='list-remove' onClick={() => removeItemToCartHandler(index)}>&#x2715;</button>
                                 </div>   

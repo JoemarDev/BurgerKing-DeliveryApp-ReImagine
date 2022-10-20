@@ -1,3 +1,5 @@
+@import '../../media-queries.scss';
+
 .cart-container {
     position: fixed;
     right: 0;
@@ -16,9 +18,41 @@
     padding-left: 4%;
     padding-top: 100px;
     
+    .mobile-close-cart {
+        display: none;
+
+        @include lt-md {
+            display: block;
+            position: fixed;
+            right: 20px;
+            top: 5%;
+            font-size: 25px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+
+        }
+
+    }
+    
+    @include lt-md {
+        padding: 10px;
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+
+        z-index: 40;
+    }
+
     .inner-cart-container {
         width: 500px;
+
+        @include lt-md {
+            width: 90%;
+            width: 100%;
+        }
     }
+
     .cart-header-title {
 
         font-size: 35px;

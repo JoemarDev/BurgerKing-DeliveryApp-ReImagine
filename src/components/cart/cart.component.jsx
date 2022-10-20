@@ -7,7 +7,7 @@ import CartTotalAmount from '../cart-total-amount/cart-total-amount.component';
 import './cart.styles.scss';
 const Cart = () => {
 
-    const {cartItems} = useContext(CartContext);
+    const {cartItems , setIsCartOpen} = useContext(CartContext);
 
     useEffect(() => {
         document.body.style.overflowY = "hidden";
@@ -16,7 +16,8 @@ const Cart = () => {
             document.body.style.overflowY = "scroll";
         }
     },[]);
-    
+
+    const closeCart = () => setIsCartOpen(false);
 
     return (
         <>
@@ -24,7 +25,7 @@ const Cart = () => {
             <div className="cart-container">
                 <div className='inner-cart-container'>
                     <h2 className='cart-header-title'>My Order</h2>
-
+                    <button className='mobile-close-cart' onClick={closeCart}>&#x2715;</button>
                     {cartItems.length > 0  && <CartItemLists cartItems={cartItems}/> }
 
                     {cartItems.length === 0 &&  <CartEmptyPlaceHolder />}

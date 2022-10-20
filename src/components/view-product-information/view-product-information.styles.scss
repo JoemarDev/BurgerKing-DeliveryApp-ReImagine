@@ -1,3 +1,4 @@
+@import '../../media-queries.scss';
 .view-product-informations {
     line-height: 30px;
     color: #502314;  
@@ -8,6 +9,13 @@
     padding-top: 20px;
     padding-bottom: 40px;
     position: relative;
+
+    @include lt-md {
+        position: static;
+        overflow-y : visible;
+        height: auto;
+        padding-bottom: 25%;
+    }
 
     &::-webkit-scrollbar {
         width: 5px;

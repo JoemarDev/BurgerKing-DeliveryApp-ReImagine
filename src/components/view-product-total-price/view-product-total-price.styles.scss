@@ -1,3 +1,5 @@
+@import '../../media-queries.scss';
+
 .view-product-total-price {
     display: flex;
     justify-content: space-between;
@@ -12,6 +14,15 @@
     left: 50%;
     bottom: 12px;
     cursor: pointer;
+
+    @include lt-md {
+        position: fixed;
+        height: 50px;
+
+        left: 50%;
+        bottom: 5%;
+    }
+
 
     &:active {
         transform: translate(-50% , 0) scale(0.98);
