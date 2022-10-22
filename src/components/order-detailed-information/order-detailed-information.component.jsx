@@ -3,12 +3,13 @@ import OrderTotalInformation from '../order-total-information/order-total-inform
 import { FormatToMoney } from '../../utils/basic.utils';
 import './order-detailed-information.styles.scss';
 import { GetProductAddOnsName } from '../../utils/app-functions.utils';
+import { Fragment } from 'react';
 const OrderDetailedInformation = ({orderDetails}) => {
     
     
     const GetAddOnsTotalPrice = (addOns, product) => {
         let totalAmount = 0;
-
+        if(addOns.length === 0) return totalAmount;
         {addOns.ids.map((id) => {
             totalAmount +=  GetProductAddOnsPrice(product , addOns.name , id);
         })}
@@ -31,10 +32,15 @@ const OrderDetailedInformation = ({orderDetails}) => {
                             <p className='order-amount'>₱ {FormatToMoney(GetSingleOrdersTotalAmount(item))}</p>
                         </div>
                         <div className="add-ons-details">
-                            {addOns.ids.map((id,index) => (
-                                <span key={index}>{GetProductAddOnsName(item.product , addOns.name , id)}</span>
-                            ))}
-                            <span>₱ {FormatToMoney(GetAddOnsTotalPrice(addOns , product))}</span>
+                            {addOns.length !== 0 && 
+                                <Fragment>
+                                     {addOns.ids.map((id,index) => (
+                                        <span key={index}>{GetProductAddOnsName(item.product , addOns.name , id)}</span>
+                                    ))}
+                                    <span>₱ {FormatToMoney(GetAddOnsTotalPrice(addOns , product))}</span>
+                                </Fragment>
+                            }
+                           
                         </div>
                     </div>
                 )
