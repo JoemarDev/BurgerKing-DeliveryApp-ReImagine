@@ -1,0 +1,37 @@
+.order-basic-information {
+    padding: 30px 50px;
+    background: #8f3f24;
+    border-radius: 5px;
+    box-shadow: rgb(0 0 0 / 10%) 0px 4px 12px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    position: relative;
+    z-index: 2;
+    color: #f6f0e7;
+    width: 100%;
+
+    h3 {
+
+        color: #f6f0e7;
+        font-size: 30px;
+        margin-bottom: 5px;
+    }
+
+    .order-icons {
+        width: 80px;
+        margin-right: 20px;
+        display: none;
+    }
+    
+    .info {
+        padding-right: 20px;
+    }
+
+    .total-order-amount {
+        font-size: 20px;
+        font-weight: 600;
+        color: #f6f0e7;
+        margin-top: 10px;
+    }
+}

@@ -54,7 +54,8 @@
             width: 700px;
             height: 600px;
             background: #f8f1eb;
-            
+            max-width: 40vw;
+
             @include lt-md {
                 width: 100%;
                 display: flex;
@@ -62,6 +63,7 @@
                 justify-content: center;
                 height: 50vh;
                 overflow: hidden;
+                max-width: 100%;
             }
 
             .product-image {
@@ -83,7 +85,7 @@
             height: 600px;
             box-shadow: 0 2px 4px 0 rgb(80 35 20 / 10%);
             position: relative;
-                
+
             @include lt-md {
                 width: 100%;
                 height: auto;

@@ -110,6 +110,11 @@ export const CartProvider = ({children}) => {
     const getCartTotalItemsAmount = () => setCartTotalAmount(ComputerCartTotalAmount(cartItems));
 
 
+    const ResetCart = () => {
+        setCartItems([]);
+        setIsCartOpen(false);
+    }
+
 
     useEffect(() => {
         getCartTotalItems();
@@ -125,7 +130,8 @@ export const CartProvider = ({children}) => {
         addItemToCart,
         removeItemToCart,
         setIsCartOpen,
-        updateItemFromCart
+        updateItemFromCart,
+        ResetCart
     };
     
     

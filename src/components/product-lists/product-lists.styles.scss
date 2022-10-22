@@ -5,6 +5,12 @@
     grid-template-columns: repeat(4, 1fr);
     column-gap: 20px;
 
+
+    @include lt-lg {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 0px;
+    }
+
     @include lt-md {
         grid-template-columns: repeat(2, 1fr);
         column-gap: 0px;

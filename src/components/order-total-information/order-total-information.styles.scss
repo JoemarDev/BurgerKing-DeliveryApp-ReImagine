@@ -1,0 +1,19 @@
+.order-total-information {
+    border-top: 2px solid #afa28f;
+    padding: 20px 0px;
+
+    .inner-total-information {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        label {
+            font-family: "FlameFont";
+            color: #8f3f24;
+        }
+
+        .total-amount-final {
+            font-size: 25px
+        }
+    }
+}

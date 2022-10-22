@@ -17,7 +17,12 @@
     justify-content: center;
     padding-left: 4%;
     padding-top: 100px;
-    
+    min-width: 600px;
+
+    @include lt-md {
+      min-width: unset;
+
+    }
     .mobile-close-cart {
         display: none;
 

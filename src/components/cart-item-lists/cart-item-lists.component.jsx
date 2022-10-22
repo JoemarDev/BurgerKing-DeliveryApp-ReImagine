@@ -45,7 +45,6 @@ const CartItemLists = ({cartItems}) => {
 
                     const ListsPrice = (product.price ?? product.price_levels[0]['price']) * productQuantity;
 
-            
                     const GetAddOnsTotal = () => {
                         let AddOnsTotalPrice = 0;
 

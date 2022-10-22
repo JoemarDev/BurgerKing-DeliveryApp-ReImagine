@@ -50,7 +50,7 @@ const Header = () => {
                    <CartButton />
                 
                     {currentUser ? 
-                        (<UserImageName user={currentUser}/>)
+                        (<UserImageName user={currentUser} />)
                         :
                         (
                             <button onClick={SignInWithGoogle}>

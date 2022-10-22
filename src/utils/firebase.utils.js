@@ -11,8 +11,13 @@ import {
 import {
     doc,
     getDoc,
+    addDoc,
     getFirestore,
     setDoc,
+    collection,
+    getDocs,
+    query,
+    where,
 } from 'firebase/firestore';
 
 const firebaseConfig = {
@@ -65,6 +70,41 @@ export const createUserDocumentFromAuth = async(userAuth) => {
     }
 
     return userDocRef;
+}
+
+
+export const createOrderDocument = async(user,orders) => {
+    if(!orders || !user) return;
+
+    const userID = user.uid;
+
+    const createdAt = new Date();
+
+    const orderDocs = await collection(db, 'burger-king-orders');
+    
+    
+    const res = await addDoc(orderDocs, {
+        userID,
+        createdAt, 
+        orderDetails : orders,
+    });
+
+    return res;
+}
+
+export const GetUserOrders = async(user) => {
+    if(!user) return;
+    let userOrders = [];
+    const orderDocs = await collection(db, 'burger-king-orders');
+    const {uid} = user;
+    const q = query(orderDocs , where("userID" , "==" , uid) );
+    const res = await getDocs(q);
+    
+    res.docs.map((item) => {
+        userOrders = [...userOrders , item.data()];
+    });
+
+    return userOrders;
 }
 
 export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth , callback);

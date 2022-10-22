@@ -5,12 +5,13 @@ import './cart-total-amount.styles.scss';
 
 const CartTotalAmount = () => {
 
-    const {cartTotalAmount} = useContext(CartContext);
-    
+    const {cartTotalAmount } = useContext(CartContext);
 
     const SubTotal = cartTotalAmount * 0.88;
 
     const VAT = cartTotalAmount * 0.12;
+
+
     return (
                             
         <div className="cart-total-amount-section">

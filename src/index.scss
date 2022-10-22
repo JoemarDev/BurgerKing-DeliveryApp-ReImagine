@@ -47,7 +47,14 @@ ul {
 .container {
   max-width: 1400px;
   margin: auto;
-  
+  width: 95%;
+
+
+    &::-webkit-scrollbar {
+     
+      display: none;
+    }
+
     @include lt-md {
   
       height: 92vh;
