@@ -1,0 +1,39 @@
+.user-info-button {
+    display: flex;
+    align-items: center;
+    button {
+        overflow: hidden;
+        height: 70px;
+        width: 70px;
+        position: relative;
+        border-radius: 20px;
+        margin-right: 15px;
+        border: none;
+        font-size: 0;
+        background: #f5efe6;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        cursor: pointer;
+
+        &:first-letter {
+            font-size: 50px;
+            font-weight: 600;
+            color: #502314;
+        }
+
+        &:active {
+            transform: scale(0.9);
+        }
+
+
+        img {
+            width: 40%;
+        }
+    }
+
+    label {
+        display: block;
+        font-weight: 600;
+    }
+
+
+}

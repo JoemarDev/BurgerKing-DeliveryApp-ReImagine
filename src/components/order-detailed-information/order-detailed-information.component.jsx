@@ -10,9 +10,10 @@ const OrderDetailedInformation = ({orderDetails}) => {
     const GetAddOnsTotalPrice = (addOns, product) => {
         let totalAmount = 0;
         if(addOns.length === 0) return totalAmount;
-        {addOns.ids.map((id) => {
+
+        addOns.ids.map((id) => {
             totalAmount +=  GetProductAddOnsPrice(product , addOns.name , id);
-        })}
+        })
 
         return totalAmount;
     }

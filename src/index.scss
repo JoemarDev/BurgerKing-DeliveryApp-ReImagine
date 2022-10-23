@@ -51,14 +51,13 @@ ul {
 
 
     &::-webkit-scrollbar {
-     
       display: none;
     }
 
     @include lt-md {
   
       height: 92vh;
-      padding-bottom: 5vh;
+      padding-bottom: 10vh;
       overflow-y: scroll;
       
   }

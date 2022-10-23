@@ -2,19 +2,14 @@ import { Fragment, useContext } from 'react';
 import { Outlet, useNavigate,  } from 'react-router-dom';
 import Search from '../search/search.component';
 import './header.styles.scss';
-
-
-import { siginInWithGooglePopup } from '../../utils/firebase.utils';
-import { UserContext } from '../../context/user.context';
-import UserImageName from '../user-image-name/user-image-name.component';
 import Cart from '../cart/cart.component';
 import { CartContext } from '../../context/cart.context';
 import CartButton from '../cart-button/cart-button.component';
 import CartMobileButton from '../cart-button-mobile/cart-button-mobile.component';
+import UserInfoButton from '../user-info-button/user-info-button.component';
 const Header = () => {
 
 
-    const {currentUser} = useContext(UserContext);
 
     const {isCartOpen} = useContext(CartContext);
 
@@ -22,10 +17,6 @@ const Header = () => {
 
     const GoToHome = () => {
         navigate('/');
-    }
-
-    const SignInWithGoogle = async () => {
-        await siginInWithGooglePopup();
     }
 
 
@@ -48,20 +39,19 @@ const Header = () => {
 
                 <div className="right-section">
                    <CartButton />
-                
-                    {currentUser ? 
-                        (<UserImageName user={currentUser} />)
-                        :
-                        (
-                            <button onClick={SignInWithGoogle}>
-                                <img src={`${process.env.PUBLIC_URL}/icons/user.svg`} alt="user"/>
-                            </button>
-                        )
-                    }
+                   <UserInfoButton />
                 </div>
 
                 {isCartOpen && <Cart/>}
+                    
+                <div className="mobile-user-info">
+                    <UserInfoButton />
+                </div>
+
             </div>
+
+
+
             <CartMobileButton />
             <Outlet />
         </Fragment>

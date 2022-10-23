@@ -35,6 +35,11 @@
 
     }
 
+    .center-section {
+        @include lt-md {
+            display: none;
+         }
+    }
 
     .right-section {
 
@@ -48,6 +53,7 @@
         @include lt-md {
            display: none;
         }
+
         
         button {
             overflow: hidden;
@@ -86,9 +92,15 @@
 
     }
 
+}
 
- 
+.mobile-user-info {
+    display: none;
+    position: relative;
 
-
+    @include lt-md {
+        display: block;
+    }
 
 }
+
