@@ -13,9 +13,7 @@ const Orders = () => {
     const [orders , setOrders] = useState([]);
     
     useEffect(() => {
-        if(!currentUser) return;
-        // if(!currentUser) navigate('/');
-        
+        if(!currentUser) navigate('/');
         const GetUserOrderData = async() => {
             const OrdersResult = await GetUserOrders(currentUser);
             setOrders(OrdersResult);
