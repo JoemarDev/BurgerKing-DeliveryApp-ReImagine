@@ -1,3 +1,5 @@
+# Warning : API DEAD - App Might not work properly
+
 # Burger King Re-Imagine
 
 This project is created in order to fully understand the concept of React Context.
